@@ -40,18 +40,18 @@ public class GyroTurnToAngle extends Command {
     		kP = 1;
     	}
     	if (targetAngle < currentAngle){
-    		Robot.driveTrain.setLeft(0.65*-1*kP);
-    		Robot.driveTrain.setRight(0.65*-1*kP);
+    		Robot.driveTrain.setLeft(0.60*-1*kP);
+    		Robot.driveTrain.setRight(0.60*-1*kP);
     	} else if (targetAngle > currentAngle) {
-    		Robot.driveTrain.setLeft(0.65*kP);
-    		Robot.driveTrain.setRight(0.65*kP);
+    		Robot.driveTrain.setLeft(0.60*kP);
+    		Robot.driveTrain.setRight(0.60*kP);
     	}
     	
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	if (targetAngle >= Robot.sensors.getGyroAngle() - 10.0 && targetAngle <= Robot.sensors.getGyroAngle() + 10.0) {
+    	if (targetAngle >= Robot.sensors.getGyroAngle() - 11.5 && targetAngle <= Robot.sensors.getGyroAngle() + 11.5) {
     		return true;
     	} else {
     		return false;

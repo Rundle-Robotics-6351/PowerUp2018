@@ -12,6 +12,7 @@ public class Auto_DriveStraight extends Command {
 	
 	double spd, tme, dst;
 	boolean encoderDrive;
+	boolean finished;
 	
     public Auto_DriveStraight(double speed, double time, double distance) {
         // Use requires() here to declare subsystem dependencies
@@ -32,7 +33,7 @@ public class Auto_DriveStraight extends Command {
     public Auto_DriveStraight(double distance) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	this(0.4, 0.0, distance);
+    	this(0.45, 0.0, distance);
     	
     }
     
@@ -45,6 +46,7 @@ public class Auto_DriveStraight extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	finished = false;
     	if (encoderDrive == true) {
     		Robot.sensors.driveEncoderLeft.reset();
     		Robot.driveTrain.setLeft(spd*RobotMap.Curve_Reduction_Factor);
@@ -68,24 +70,32 @@ public class Auto_DriveStraight extends Command {
         		Timer.delay(0.4);
     			Robot.driveTrain.setLeft(0.0);
         		Robot.driveTrain.setRight(0.0);
+        		finished = true;
     		}
     	} else {
     		Robot.driveTrain.setLeft(0.0);
     		Robot.driveTrain.setRight(0.0);
+    		finished = true;
     	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	if (encoderDrive == true) {
-    		double currentDistance = Robot.sensors.getDriveEncoderDistance();
-    		if (currentDistance >= dst - 3) {
-    			return true;
-    		} else {
-    			return false;
-    		}
-    	} else {
+//    	if (encoderDrive == true) {
+//    		double currentDistance = Robot.sensors.getDriveEncoderDistance();
+//    		if (currentDistance >= dst - 3) {
+//    			return true;
+//    		} else {
+//    			return false;
+//    		}
+//    	} else {
+//    		return true;
+//    	}
+    	
+    	if (finished == true) {
     		return true;
+    	} else {
+    		return false;
     	}
     }
 

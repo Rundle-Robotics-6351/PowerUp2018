@@ -19,11 +19,11 @@ public class Winch extends Subsystem {
 
     // Movement Commands
     public void armUp() {
-    	arm_Winch_Motor.set(-1);
+    	arm_Winch_Motor.set(-0.7);
     }
     
     public void armDown() {
-    	arm_Winch_Motor.set(1);
+    	arm_Winch_Motor.set(0.5);
     }
 	
     public void armStop() {
