@@ -49,13 +49,13 @@ public class Auto_DriveStraight extends Command {
     	finished = false;
     	if (encoderDrive == true) {
     		Robot.sensors.driveEncoderLeft.reset();
-    		Robot.driveTrain.setLeft(spd*RobotMap.Curve_Reduction_Factor);
-    		Robot.driveTrain.setRight((spd)*(-1));
+    		Robot.driveTrain.setLeft(spd*RobotMap.Curve_Reduction_Factor_Left);
+    		Robot.driveTrain.setRight((spd)*(-1)*RobotMap.Curve_Reduction_Factor_Right);
     		
     		
     	} else {
-    		Robot.driveTrain.setLeft(spd*RobotMap.Curve_Reduction_Factor);
-    		Robot.driveTrain.setRight((spd)*(-1));
+    		Robot.driveTrain.setLeft(spd*RobotMap.Curve_Reduction_Factor_Left);
+    		Robot.driveTrain.setRight((spd)*(-1)*RobotMap.Curve_Reduction_Factor_Right);
     		Timer.delay(tme);
     	}
     }

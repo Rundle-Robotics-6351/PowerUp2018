@@ -6,6 +6,7 @@ import org.usfirst.frc.team6351.robot.auto.commands.Auto_ArmToTime;
 import org.usfirst.frc.team6351.robot.auto.commands.Auto_ArmUpToScale;
 import org.usfirst.frc.team6351.robot.auto.commands.Auto_DriveBackwards;
 import org.usfirst.frc.team6351.robot.auto.commands.Auto_DriveStraight;
+import org.usfirst.frc.team6351.robot.auto.commands.Auto_DriveStraightMIDDLE;
 import org.usfirst.frc.team6351.robot.auto.commands.GyroTurnToAngle;
 import org.usfirst.frc.team6351.robot.commands.GrabberSolenoids;
 
@@ -49,8 +50,8 @@ public class Auto_MasterRoutine extends CommandGroup {
 					addSequential(new GyroTurnToAngle(-90));
 					addSequential(new Auto_DriveStraight(70));
 					addSequential(new GyroTurnToAngle(90));
-					addSequential(new Auto_ArmToTime(0.8));
-					addSequential(new Auto_DriveStraight(54));
+					addSequential(new Auto_ArmToTime(0.9));
+					addSequential(new Auto_DriveStraightMIDDLE(55));
 					addSequential(new GrabberSolenoids());
 				} else if (switchPos.contains("R") == true) {
 					DriverStation.reportError("Middle Switch Right",false);
@@ -58,8 +59,8 @@ public class Auto_MasterRoutine extends CommandGroup {
 					addSequential(new GyroTurnToAngle(90));
 					addSequential(new Auto_DriveStraight(38));
 					addSequential(new GyroTurnToAngle(-90));
-					addSequential(new Auto_ArmToTime(0.8));
-					addSequential(new Auto_DriveStraight(58));
+					addSequential(new Auto_ArmToTime(0.9));
+					addSequential(new Auto_DriveStraightMIDDLE(65));
 					addSequential(new GrabberSolenoids());
 				}
 			} else if (startingPos == "R") {
@@ -67,9 +68,9 @@ public class Auto_MasterRoutine extends CommandGroup {
 				if (switchPos.contains("R") == true) {
 					DriverStation.reportError("Right Switch",false);
 					addSequential(new Auto_DriveStraight(149));
-					addSequential(new Auto_ArmToTime(0.8));
+					addSequential(new Auto_ArmToTime(0.9));
 					addSequential(new GyroTurnToAngle(-90));
-					addSequential(new Auto_DriveStraight(27));
+					addSequential(new Auto_DriveStraightMIDDLE(40));
 					addSequential(new GrabberSolenoids());
 				} else {
 					DriverStation.reportError("Right Auto No Options: Crossing Base Line",false);
@@ -80,9 +81,9 @@ public class Auto_MasterRoutine extends CommandGroup {
 				if (switchPos.contains("L") == true) {
 					DriverStation.reportError("Left Switch",false);
 					addSequential(new Auto_DriveStraight(149));
-					addSequential(new Auto_ArmToTime(0.8));					
+					addSequential(new Auto_ArmToTime(0.9));					
 					addSequential(new GyroTurnToAngle(90));
-					addSequential(new Auto_DriveStraight(27));
+					addSequential(new Auto_DriveStraightMIDDLE(40));
 					addSequential(new GrabberSolenoids());
 				} else {
 					DriverStation.reportError("Left Auto No Options: Crossing Base Line",false);

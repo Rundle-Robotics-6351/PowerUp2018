@@ -9,8 +9,9 @@ package org.usfirst.frc.team6351.robot;
 public class RobotMap {
 	public static final double Drive_Scaling_Auto = 0.6;
 	public static final double Drive_Scaling_Teleop = 0.9;
-	public static final double Curve_Reduction_Factor = 0.95;
-	
+	public static final double Curve_Reduction_Factor_Right = 1.00;
+	public static final double Curve_Reduction_Factor_Left = 0.91;
+	 
 	public static final double JoystickDeadzone = 0.2;
 	public static final double TriggerDeadzone = 0.2;
 
